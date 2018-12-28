@@ -8,7 +8,7 @@
       <div class="inputbox">
         <input type="text" placeholder="请输入提现密码" v-model="newpwd">
       </div>
-      <button>确认</button>
+      <button @click="go">确认</button>
     </div>
   </div>
 </template>
@@ -22,12 +22,16 @@ export default {
   },
   data () {
     return {
-      msg: '提现密码',
+      msg: '忘记密码',
       oldpwd: '',
       newpwd: ''
     }
   },
-  methods: {}
+  methods: {
+    go () {
+      this.$router.go(-1)// 返回上一层
+    }
+  }
 }
 </script>
 

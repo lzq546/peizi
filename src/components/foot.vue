@@ -54,18 +54,6 @@ export default {
   },
   mounted () {},
   watch: {
-    // numbernav (val) {
-    //   let self = this
-    //   self.current = 1
-    //   for (let i = 0; i < self.arr.length; i++) {
-    //     if (self.arr[i].id === 2) {
-    //       self.arr[0].imgsrc = require('@/assets/images/5.png')
-    //       self.arr[1].imgsrc = require('@/assets/images/2.png')
-    //       self.arr[2].imgsrc = require('@/assets/images/7.png')
-    //       self.arr[3].imgsrc = require('@/assets/images/8.png')
-    //     }
-    //   }
-    // },
     $route (to, from) {
       // console.log(this.$route.path) || '/rule' || 'guide'
       if (this.$route.path == '/index' || this.$route.path == '/rule' || this.$route.path == '/guide') {
@@ -113,6 +101,13 @@ export default {
             this.arr[3].imgsrc = require('@/assets/images/4.png')
           }
         }
+      }
+      if (from.name == 'my' && to.name == 'Commission') {
+        let a = '奖励收入明细'
+        this.$store.commit('Yongjin_name', a)
+      } else {
+        let a = '佣金收入明细'
+        this.$store.commit('Yongjin_name', a)
       }
     }
   },

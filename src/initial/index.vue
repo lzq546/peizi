@@ -21,7 +21,7 @@
     <div class="nav-one">
       <div><router-link to="/guide"><span>新手<br>指南</span><img src="@/assets/images/新手指南背景.png" alt=""></router-link></div>
       <div><router-link to="/rule"><span>点点配<br>规则</span><img src="@/assets/images/点点配规则矩形.png" alt=""></router-link></div>
-      <div><span>关注<br>公众号</span><img src="@/assets/images/免费体验矩形.png" alt=""></div>
+      <div><router-link to="/publicaddress"><span>关注<br>公众号</span><img src="@/assets/images/免费体验矩形.png" alt=""></router-link></div>
     </div>
     <div class="allocation">
       <ul class="nav">

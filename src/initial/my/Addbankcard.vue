@@ -31,8 +31,8 @@
         <input type="password" placeholder="提现密码" v-model="password">
       </div>
     <div class="text3 clearfix">
-        <div class="fl">未设置提现密码</div>
         <router-link to="modifyCash">
+        <div class="fl">未设置提现密码</div>
         <div class="fr">前往设置»</div>
         </router-link>
     </div>

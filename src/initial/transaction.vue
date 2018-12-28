@@ -19,7 +19,7 @@
       </div>
       <div class="searchbox">
         <div class="search-box">
-          <div class="search-ico" @click="search"></div>
+          <div class="search-ico" @click="search"><img src="../assets/images/放大镜.png" alt=""></div>
           <input type="text" class="search" placeholder="搜索股票代码/拼音" v-model="searchtext">
         </div>
           <div class="empty" @click="searchtext=''">清空</div>
@@ -213,7 +213,10 @@ export default {
         width: 30px;
         height: 30px;
         margin-left: 20px;
-        background-color: #666666;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
       .empty {
         width: 125px;

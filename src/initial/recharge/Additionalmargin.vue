@@ -151,12 +151,14 @@ export default {
     }
   }
   .btn {
-    width: 100%;
+    width: 80%;
     height: 90px;
     line-height: 90px;
+    margin: 0 auto;
     text-align: center;
-    font-size: 40px;
-    background-color: #f83b38;
+    font-size: 36px;
+    background-color: #c43236;
+    border-radius: 16px;
     color: #fff;
     margin-bottom: 148px;
   }

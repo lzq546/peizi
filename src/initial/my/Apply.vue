@@ -10,7 +10,7 @@
         <input type="text" placeholder="请输入手机号码" v-model="iphone">
     </div>
     <div class="btn">
-        <button>申请</button>
+        <button @click="applyclick">申请</button>
     </div>
   </div>
 </template>
@@ -30,7 +30,11 @@ export default {
     }
   },
   mounted () {},
-  methods: {}
+  methods: {
+    applyclick () {
+      this.$router.push({name: 'agent', path: '/agent'})
+    }
+  }
 }
 </script>
 

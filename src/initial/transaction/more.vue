@@ -6,7 +6,7 @@
         <div
           class="search-ico"
           @click="search"
-        ></div>
+        ><img src="../../assets/images/放大镜.png" alt=""></div>
         <input
           type="text"
           class="search"
@@ -139,7 +139,10 @@ export default {
       width: 30px;
       height: 30px;
       margin-left: 20px;
-      background-color: #666666;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     .empty {
       width: 125px;

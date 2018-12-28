@@ -21,9 +21,10 @@
         <div class="fr">修改</div>
     </div>
     </router-link>
-    <div class="text1">
+    <div class="text1" @click="changeclick">
         检查新版本
     </div>
+    <div class="text2" :class="{'text2color':text2color}">已是最新版本</div>
     <button>退出登录</button>
   </div>
 </template>
@@ -38,10 +39,19 @@ export default {
   data () {
     return {
       msg: '安全设置',
-      iphone: '151****3963'
+      iphone: '151****3963',
+      text2color: false
     }
   },
-  methods: {}
+  methods: {
+    changeclick () {
+      let self = this
+      self.text2color = true
+      setTimeout(function () {
+        self.text2color = false
+      }, 2000)
+    }
+  }
 }
 </script>
 
@@ -88,13 +98,23 @@ export default {
       color: #333;
       border-bottom: 2px solid #E0E0E0;
   }
+  .text2 {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 30px;
+      opacity:0;
+      transition: opacity 3s;
+  }
+  .text2color {
+      opacity: 1;
+  }
   button {
       display: block;
       width: 600px;
       height: 90px;
       line-height: 90px;
       font-size: 40px;
-      margin: 160px auto;
+      margin: 110px auto;
       color: #fff;
       background-color: #C43236;
       text-align: center;

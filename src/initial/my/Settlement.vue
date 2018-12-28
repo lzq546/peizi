@@ -4,11 +4,24 @@
     <h3>选择增配订单</h3>
     <div class="box">
       <div class="box1">
-        <input type="text" v-model="Order">
-        <span @click="Ordershow = !Ordershow"><img src="../../assets/images/下箭头.png" alt=""></span>
-        <div class="nav" v-if="Ordershow">
+        <input
+          type="text"
+          v-model="Order"
+        >
+        <span @click="Ordershow = !Ordershow"><img
+            src="../../assets/images/下箭头.png"
+            alt=""
+          ></span>
+        <div
+          class="nav"
+          v-if="Ordershow"
+        >
           <ul>
-            <li v-for="(item,index) in Ordernav" @click="Order=item,Ordershow=!Ordershow" :key="index">{{item}}</li>
+            <li
+              v-for="(item,index) in Ordernav"
+              @click="Order=item,Ordershow=!Ordershow"
+              :key="index"
+            >{{item}}</li>
           </ul>
         </div>
       </div>
@@ -27,42 +40,58 @@
         :class="{'color':color==2}"
       >提盈记录</div>
     </div>
-    <div class="text1">
-      <div>子账户提现余额：</div><span>自行查看是否符合提现条件</span>
-    </div>
-    <div class="text2">
-      <div class="one">子账户</div>
-      <span @click="accountshow=!accountshow">
-        {{account}}
-        <i></i>
-        <div
-          class="two"
-          v-if="accountshow"
-        >
-          <ul>
-            <li
-              v-for="(item,index) in accountnav"
-              @click="account=item"
-              :key="index"
-            >{{item}}</li>
-          </ul>
-        </div>
-      </span>
-    </div>
-    <div class="text3">
-      <div>提盈金额</div>
-      <div><input
-          type="text"
-          placeholder="请正确填写提盈余额"
-          v-model="money"
-        ><span>元</span></div>
-    </div>
-    <button>确认提现</button>
-    <h5>温馨提示：</h5>
-    <div class="text4">
+    <div v-if="color==1">
+      <div class="text1">
+        <div>子账户提现余额：</div><span>自行查看是否符合提现条件</span>
+      </div>
+      <div class="text2">
+        <div class="one">子账户</div>
+        <span @click="accountshow=!accountshow">
+          {{account}}
+          <i></i>
+          <div
+            class="two"
+            v-if="accountshow"
+          >
+            <ul>
+              <li
+                v-for="(item,index) in accountnav"
+                @click="account=item"
+                :key="index"
+              >{{item}}</li>
+            </ul>
+          </div>
+        </span>
+      </div>
+      <div class="text3">
+        <div>提盈金额</div>
+        <div><input
+            type="text"
+            placeholder="请正确填写提盈余额"
+            v-model="money"
+          ><span>元</span></div>
+      </div>
+      <button>确认提现</button>
+      <h5>温馨提示：</h5>
+      <div class="text4">
         您的单个账户符合以下条件时，点点配（月）有权按1000元的整数倍申请提取盈利，钱程策略在下个交易日将您的提盈转到您的钱程策略账户，账户总资产超过初始申请资金110%且有现金的，可以每天提盈一次。
-<br>例如：10万元领投本金申请50万跟投资金的该合同，总资产60万元
-<br>提盈：600000×110%=660000之上部分可以提取，当账户总资产达到67万时可以提取1万元盈利，小于110%部分，即660000里60000的部分可以缴纳利息。（天天策略不受该110%提盈标准限制），当天的提盈截止时间15:00，盈利金额以当天收盘后的资产净值为准。
+        <br>例如：10万元领投本金申请50万跟投资金的该合同，总资产60万元
+        <br>提盈：600000×110%=660000之上部分可以提取，当账户总资产达到67万时可以提取1万元盈利，小于110%部分，即660000里60000的部分可以缴纳利息。（天天策略不受该110%提盈标准限制），当天的提盈截止时间15:00，盈利金额以当天收盘后的资产净值为准。
+      </div>
+    </div>
+    <div v-if="color==2">
+      <table>
+        <tr>
+          <th>金额</th>
+          <th>状态</th>
+          <th>时间</th>
+        </tr>
+        <tr v-for="(item,index) in Recordnav" :key="index">
+          <td>{{item.money}}</td>
+          <td>{{item.type}}</td>
+          <td>{{item.time}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
@@ -83,6 +112,9 @@ export default {
       accountshow: false,
       accountnav: ['账户1', '账户2', '账户3'],
       Ordernav: ['假装有东西', '真有东西'],
+      Recordnav: [
+        {money: '1200', type: '已提现', time: '2108-01-15'}
+      ],
       Order: '',
       Ordershow: false
     }
@@ -164,8 +196,8 @@ export default {
       background-color: #adadad;
       color: #fff;
     }
-    .color{
-        background-color: #C43236;
+    .color {
+      background-color: #c43236;
     }
   }
   .text1 {
@@ -269,16 +301,40 @@ export default {
     border-radius: 16px;
   }
   h5 {
-      margin-top: 40px;
-      margin-left: 20px;
-      color: #333333;
-      font-size: 28px;
+    margin-top: 40px;
+    margin-left: 20px;
+    color: #333333;
+    font-size: 28px;
   }
   .text4 {
     padding: 48px 32px;
     color: #333333;
     font-size: 24px;
     line-height: 35px;
+  }
+  table {
+    margin-top: 20px;
+    width: 100%;
+    tr {
+      width: 100%;
+      display: flex;
+      th {
+        flex: 1;
+        height: 64px;
+        line-height: 64px;
+        font-size: 28px;
+        text-align: center;
+        border-bottom: 2px solid #D6D6D6;
+      }
+      td {
+        flex: 1;
+        height: 64px;
+        line-height: 64px;
+        font-size: 28px;
+        text-align: center;
+        border-bottom: 2px solid #D6D6D6;
+      }
+    }
   }
 }
 </style>

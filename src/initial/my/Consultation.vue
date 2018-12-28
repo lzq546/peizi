@@ -10,10 +10,12 @@
       <div class="fl">微信号</div>
       <div class="fr">400-0068-093</div>
     </div>
+    <router-link to="Helpcenter">
     <div class="text clearfix">
       <div class="fl">帮助中心</div>
       <div class="fr"></div>
     </div>
+    </router-link>
   </div>
 </template>
 

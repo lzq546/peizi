@@ -17,11 +17,13 @@
             <div class="left" @click="selection">
               <div :class="{'color':boolean==true}">✔</div>记住密码
             </div>
+            <router-link to="Reset">
             <div class="right">忘记密码？</div>
+            </router-link>
           </div>
           <div class="login-box" @click="login_user">登录</div>
           <div class="register"><router-link to="/register" style="display: block;">注册账号</router-link></div>
-          <div class="careful">登录即表示同意<a href="javasprit;">《点点配APP注册协议》</a></div>
+          <div class="careful">登录即表示同意<router-link to="Agreement">《点点配APP注册协议》</router-link></div>
         </div>
     </div>
 </template>
@@ -57,6 +59,7 @@ export default {
     login_user () {
       console.log(this.username)
       console.log(this.password)
+      this.$router.push({name: 'index', path: '/index'})
     }
   }
 }
@@ -121,7 +124,7 @@ export default {
         margin-top: 30px;
         margin-bottom: 60px;
         font-size: 28px;
-        color: #bbbbbb;
+        color: #555;
         display: flex;
         justify-content:space-between;
         .left {

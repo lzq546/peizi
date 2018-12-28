@@ -11,7 +11,7 @@
       <div class="inputbox">
         <input type="text" placeholder="请输入新登录密码" v-model="pwd">
       </div>
-      <button>确认</button>
+      <button @click="go">确认</button>
     </div>
   </div>
 </template>
@@ -31,7 +31,11 @@ export default {
       pwd: ''
     }
   },
-  methods: {}
+  methods: {
+    go () {
+      this.$router.go(-1)// 返回上一层
+    }
+  }
 }
 </script>
 

@@ -3,10 +3,12 @@
     <top :msg="msg"></top>
     <h5>
       <div class="text">手动输入资金</div>
+      <router-link to="Additionalmargin">
       <div
         class="text2"
         :class="{'color':colorshow}"
       >您的保证金不足 前往充值»</div>
+      </router-link>
     </h5>
     <div class="box">
       <h4>第一步：输入投资本金（2000-300万）</h4>
@@ -17,10 +19,12 @@
           ></div><span>元</span>
       </div>
       <div class="text1">备注：不小于2000元，不大于300万元，且为100的整数倍</div>
+      <router-link to="Additionalmargin">
       <div
         class="text3"
         :class="{'color':colorshow}"
       >您的保证金不足 前往充值»</div>
+      </router-link>
       <h4>第二步：选择获得资金（选择杠杆，资金放大1-5倍）</h4>
       <div class="nav">
         <ul>
@@ -72,7 +76,7 @@
         <li>
           <div>账户管理费</div>
           <div>
-            <div style="text-align: right"><span>1.2</span>分/每月</div>
+            <div class="mb" style="text-align: right;"><span>1.2</span>分/每月</div>
             <div>单月利息<span>120</span>元，总利息<span>120</span>元</div>
           </div>
         </li>
@@ -88,7 +92,7 @@
     </div>
     <div class="text6 clearfix">
       <div class="left">共计应支付：<span>10120</span>元</div>
-      <div class="right fr">限制个股名单</div>
+      <router-link to="limit"><div class="right fr">限制个股名单</div></router-link>
     </div>
     <div class="pws-yn">
       <div
@@ -96,8 +100,8 @@
         @click="selection"
       >
         <div :class="{'color':boolean==true}">✔</div>我已阅读并同意
-        <a href="javasprit;">《点点配协议》</a>
-        <a href="javasprit;">《风险提示书》</a>
+        <router-link to="Agreement">《点点配协议》</router-link>
+        <router-link to="risk">《风险提示书》</router-link>
       </div>
     </div>
     <div
@@ -455,12 +459,14 @@ export default {
     }
   }
   .btn {
-    width: 100%;
+    width: 80%;
     height: 90px;
     line-height: 90px;
+    margin: 0 auto;
     text-align: center;
-    font-size: 40px;
-    background-color: #f83b38;
+    font-size: 36px;
+    background-color: #c43236;
+    border-radius: 16px;
     color: #fff;
     margin-bottom: 148px;
   }
@@ -499,6 +505,9 @@ export default {
 
   a {
     color: #1c89cf !important;
+  }
+  .mb {
+    margin-bottom: 10px;
   }
 }
 </style>

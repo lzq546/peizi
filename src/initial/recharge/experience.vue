@@ -3,7 +3,7 @@
     <top :msg="msg"></top>
     <div class="text clearfix">
       <div class="left">请选择您的免息资金</div>
-      <div class="right fr">限制个股名单</div>
+      <router-link to="limit"><div class="right fr">限制个股名单</div></router-link>
     </div>
     <div class="nav1">
       <ul>
@@ -134,15 +134,15 @@ export default {
       margin-bottom: 19px;
   }
   .btn {
-    width: 100%;
+    width: 80%;
     height: 90px;
     line-height: 90px;
+    margin: 0 auto;
     text-align: center;
-    font-size: 40px;
-    background-color: #f83b38;
+    font-size: 36px;
+    background-color: #c43236;
+    border-radius: 16px;
     color: #fff;
-    margin-top: 60px;
-    // margin-bottom: 148px;
   }
   .message {
     width: 100%;

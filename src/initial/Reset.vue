@@ -1,10 +1,7 @@
 <template>
-    <div class="register">
-        <div class="top">
-            <span @click="back"><img src="../assets/images/左箭头灰.png" alt=""></span>
-        </div>
+    <div class="Reset">
+        <top :msg="msg"></top>
         <div class="center">
-            <div class="user-img"><img src="../assets/images/logo.png" alt=""></div>
             <div class="user_box">
                 <div class="phone-number user-box">
                     <div><img src="../assets/images/手机.png" alt=""></div>
@@ -20,20 +17,22 @@
                     <input type="password" placeholder="请输入验证码" v-model="password">
                 </div>
             </div>
-            <div class="login-box" @click="register_user">登录</div>
-            <div class="careful">登录即表示同意
-                <router-link to="Agreement">《点点配APP注册协议》</router-link>
-            </div>
+            <div class="login-box" @click="Reset_user">重置密码</div>
         </div>
     </div>
 </template>
 
 <script>
+import top from '@/components/top'
 import { MessageBox } from 'mint-ui'
 export default {
-  name: 'register',
+  name: 'Reset',
+  components: {
+    top
+  },
   data () {
     return {
+      msg: '忘记密码',
       phonenumber: '',
       verificationcode: '',
       password: ''
@@ -48,7 +47,7 @@ export default {
       console.log(this.phonenumber)
       MessageBox('Notice', 'You clicked the button')
     },
-    register_user () {
+    Reset_user () {
       console.log(this.phonenumber)
       console.log(this.verificationcode)
       console.log(this.password)
@@ -59,7 +58,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.register {
+.Reset {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -67,32 +66,10 @@ export default {
   background-color: #fff;
   overflow: scroll;
   z-index: 3;
-  .top {
-    width: 100%;
-    height: 78px;
-    line-height: 78px;
-    background-color: #e6e7e7;
-    color: #666666;
-    font-size: 28px;
-    padding-left: 30px;
-      img {
-        height: 26px;
-      }
-  }
   .center {
     padding: 0 30px;
-    .user-img {
-      width: 213px;
-      height: 213px;
-      margin: 37px auto;
-      border-radius: 22px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
     .user_box {
-      margin-top: 122px;
+      margin-top: 52px;
     }
     .user-box {
       width: 100%;

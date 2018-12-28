@@ -78,13 +78,14 @@ export default {
   }
   button {
       display: block;
-      margin-top: 50px;
-      width: 100%;
+      width: 80%;
       height: 100px;
       line-height: 100px;
       text-align: center;
-      font-size: 40px;
+      font-size: 36px;
       color: #fff;
+      margin: 50px auto;
+      border-radius: 16px;
       background-color: #C53336;
   }
 }

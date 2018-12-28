@@ -43,7 +43,7 @@
       <div class="nav1 navlast">
         <ul>
           <li><router-link to="Invitation"><img src="@/assets/images/我的邀请图标.png" alt=""><div>我的邀请</div></router-link></li>
-          <li><img src="@/assets/images/奖励明细.png" alt=""><div>奖励明细</div></li>
+          <li><router-link to="Commission"><img src="@/assets/images/奖励明细.png" alt=""><div>奖励明细</div></router-link></li>
           <li><router-link to="activity"><img src="@/assets/images/精彩活动.png" alt=""><div>精彩活动</div></router-link></li>
         </ul>
       </div>

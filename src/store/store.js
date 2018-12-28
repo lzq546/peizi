@@ -3,12 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 const state = {
-  index_name: ''
+  yongjinname: '的撒'
 }
 
 const mutations = {
-  Index_name (state, val) {
-    state.index_name = val
+  Yongjin_name (state, val) {
+    state.yongjinname = val
   }
 }
 

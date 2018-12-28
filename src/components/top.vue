@@ -2,7 +2,7 @@
     <div class="top" :class="{'color':msg=='代理首页'}">
       <div class="left" @click="back"><img src="../assets/images/左箭头.png" alt=""></div>
       <div class="conter"><h2>{{msg}}</h2></div>
-      <router-link to="Consultation"><div class="right"><span class="img"><img src="../assets/images/白耳机.png" alt=""></span>咨询</div></router-link>
+      <router-link to="Consultation"><div v-if="msg!='忘记密码'" class="right"><span class="img"><img src="../assets/images/白耳机.png" alt=""></span>咨询</div></router-link>
     </div>
 </template>
 

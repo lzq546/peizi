@@ -12,7 +12,7 @@
         </router-link>
     <div class="text1">常见问题解答</div>
     <router-link to="dialogue"><div class="text2">在线问题</div></router-link>
-    <div class="text2">常见问题解答</div>
+    <router-link to="problem"><div class="text2">常见问题解答</div></router-link>
   </div>
 </template>
 

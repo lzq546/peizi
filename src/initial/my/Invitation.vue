@@ -8,7 +8,7 @@
           :class="{'color':color==1}"
         >我的邀请</li>
         <li>
-          <router-link to="/index">返佣记录</router-link>
+          <router-link to="/Commission">返佣记录</router-link>
         </li>
         <li
           @click="color=2"

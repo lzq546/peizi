@@ -7,11 +7,14 @@ import index from '@/initial/index'
 import recharge from '@/initial/recharge'
 import transaction from '@/initial/transaction'
 import my from '@/initial/my'
+import Reset from '@/initial/Reset'
 import foot from '@/components/foot'
 import top from '@/components/top'
 import topindex from '@/components/topindex'
 import assets from '@/components/assets'
 import transactionDownNav from '@/components/transactionDownNav'
+import risk from '@/components/risk'
+import Agreement from '@/components/Agreement'
 import transaactionindex from '@/initial/transaction/transaactionindex'
 import Purchases from '@/initial/transaction/Purchases'
 import Sell from '@/initial/transaction/Sell'
@@ -34,6 +37,7 @@ import Additionalquota from '@/initial/recharge/Additionalquota'
 import Reducingquota from '@/initial/recharge/Reducingquota'
 import rule from '@/initial/index/rule'
 import guide from '@/initial/index/guide'
+import publicaddress from '@/initial/index/publicaddress'
 import Messagecenter from '@/initial/my/Messagecenter'
 import Consultation from '@/initial/my/Consultation'
 import Mybankcard from '@/initial/my/Mybankcard'
@@ -55,7 +59,9 @@ import Rechargedetails from '@/initial/my/Rechargedetails'
 import Presentationdetails from '@/initial/my/Presentationdetails'
 import modify from '@/initial/my/modify'
 import modifyCash from '@/initial/my/modifyCash'
-
+import Commission from '@/initial/my/Commission'
+import problem from '@/initial/my/problem'
+import limit from '@/initial/my/limit'
 Vue.use(Router)
 
 export default new Router({
@@ -78,6 +84,11 @@ export default new Router({
     path: '/register',
     name: 'register',
     component: register
+  },
+  {
+    path: '/Reset',
+    name: 'Reset',
+    component: Reset
   }, // 登录注册启动页
   {
     path: '/index',
@@ -93,6 +104,11 @@ export default new Router({
     path: '/guide',
     name: 'guide',
     component: guide
+  },
+  {
+    path: '/publicaddress',
+    name: 'publicaddress',
+    component: publicaddress
   }, // 首页
   {
     path: '/recharge',
@@ -315,6 +331,16 @@ export default new Router({
     path: '/modifyCash',
     name: 'modifyCash',
     component: modifyCash
+  },
+  {
+    path: '/Commission',
+    name: 'Commission',
+    component: Commission
+  },
+  {
+    path: '/limit',
+    name: 'limit',
+    component: limit
   }, // 我的
   {
     path: '/transactionDownNav',
@@ -340,6 +366,21 @@ export default new Router({
     path: '/assets',
     name: 'assets',
     component: assets
+  },
+  {
+    path: '/risk',
+    name: 'risk',
+    component: risk
+  },
+  {
+    path: '/Agreement',
+    name: 'Agreement',
+    component: Agreement
+  },
+  {
+    path: '/problem',
+    name: 'problem',
+    component: problem
   } // 公用组件
   ]
 })

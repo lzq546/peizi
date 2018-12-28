@@ -17,7 +17,7 @@
             <li><router-link to="day">日配</router-link></li>
             <li><router-link to="month">月配</router-link></li>
             <li><router-link to="experience">体验</router-link></li>
-            <li><router-link to="query">查询</router-link></li>
+            <li><router-link to="Transactionquery">查询</router-link></li>
           </ul>
         </div>
         <h4>保证金管理</h4>

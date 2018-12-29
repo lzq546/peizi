@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <button>确认提交</button>
+    <div class="btn" @click="btn">确认提交</div>
     <h4>1.结算申请在下午4点以后进行提交</h4>
     <div class="settlementbox">
       <div
@@ -71,7 +71,7 @@
             v-model="money"
           ><span>元</span></div>
       </div>
-      <button>确认提现</button>
+      <div class="btn" @click="btn1">确认提现</div>
       <h5>温馨提示：</h5>
       <div class="text4">
         您的单个账户符合以下条件时，点点配（月）有权按1000元的整数倍申请提取盈利，钱程策略在下个交易日将您的提盈转到您的钱程策略账户，账户总资产超过初始申请资金110%且有现金的，可以每天提盈一次。
@@ -92,6 +92,24 @@
           <td>{{item.time}}</td>
         </tr>
       </table>
+    </div>
+
+    <div
+      class="message"
+      v-if="messagebox"
+      @click="messagebox=!messagebox"
+    >
+      <div class="messagebox clearfix">
+        <div>{{messagetext}}</div>
+        <button
+          class="fl"
+          @click.stop="confirm"
+        >确认</button>
+        <button
+          class="fr"
+          @click.stop="cancel"
+        >取消</button>
+      </div>
     </div>
   </div>
 </template>
@@ -116,10 +134,25 @@ export default {
         {money: '1200', type: '已提现', time: '2108-01-15'}
       ],
       Order: '',
-      Ordershow: false
+      Ordershow: false,
+      messagebox: false,
+      messagetext: ''
     }
   },
-  methods: {}
+  methods: {
+    cancel () {
+      this.messagebox = false
+    },
+    confirm () {},
+    btn () {
+      this.messagetext = '确认提交'
+      this.messagebox = true
+    },
+    btn1 () {
+      this.messagetext = '确认提现'
+      this.messagebox = true
+    }
+  }
 }
 </script>
 
@@ -288,7 +321,7 @@ export default {
       }
     }
   }
-  button {
+  .btn {
     display: block;
     width: 340px;
     height: 90px;
@@ -334,6 +367,35 @@ export default {
         text-align: center;
         border-bottom: 2px solid #D6D6D6;
       }
+    }
+  }
+    .message {
+    width: 100%;
+    height: 100%;
+    background: rgba(112, 112, 112, 0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 11;
+  }
+  .messagebox {
+    width: 534px;
+    height: 534px;
+    font-size: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -267px;
+    margin-left: -267px;
+    padding: 88px 60px;
+    button {
+      background-color: #c43236;
+      color: #fff;
+      padding: 21px 41px;
+      margin-top: 107px;
     }
   }
 }

@@ -7,7 +7,7 @@
           @click="color=1"
           :class="{'color':color==1}"
         >我的邀请</li>
-        <li>
+        <li @click="commission">
           <router-link to="/Commission">返佣记录</router-link>
         </li>
         <li
@@ -76,7 +76,12 @@ export default {
     }
   },
   mounted () {},
-  methods: {}
+  methods: {
+    commission () {
+      let b = '佣金收入明细'
+      this.$store.commit('Yongjin_name', b)
+    }
+  }
 }
 </script>
 

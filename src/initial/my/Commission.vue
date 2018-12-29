@@ -166,7 +166,8 @@ export default {
       ]
     }
   },
-  methods: {},
+  methods: {
+  },
   mounted () {
     this.msg = this.$store.state.yongjinname
   }

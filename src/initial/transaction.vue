@@ -24,7 +24,7 @@
         </div>
           <div class="empty" @click="searchtext=''">清空</div>
       </div>
-      <div class="table">
+      <div class="table" v-if="current==0">
         <table>
           <tr>
             <th>名称代码</th>
@@ -40,10 +40,44 @@
           </tr>
         </table>
       </div>
+      <div class="table" v-if="current==1">
+        <table>
+          <tr>
+            <th>名称代码</th>
+            <th>最新价</th>
+            <th>涨跌</th>
+            <th>涨幅</th>
+          </tr>
+          <tr v-for="(item,index) in stock1" :key="index" :class="{color:(index/2)==1||(index/2)==0}">
+            <td><div class="name">{{item.name}}</div><div class="code">{{item.code}}</div></td>
+            <td class="green"><div>{{item.available}}</div></td>
+            <td class="green"><div>{{item.price}}</div></td>
+            <td class="greenbox"><div class="box">{{item.profit}}</div></td>
+          </tr>
+        </table>
+      </div>
+      <div class="table" v-if="current==2">
+        <table>
+          <tr>
+            <th>日期</th>
+            <th>名称代码</th>
+            <th>状态</th>
+            <th>价格</th>
+            <th>数量</th>
+          </tr>
+          <tr v-for="(item,index) in stock2" :key="index" :class="{color:(index/2)==1||(index/2)==0}">
+            <td class="green"><div class="fsz">{{item.time}}</div></td>
+            <td><div class="name">{{item.name}}</div><div class="code">{{item.code}}</div></td>
+            <td class="green"><div>{{item.available}}</div></td>
+            <td class="green"><div>{{item.price}}</div></td>
+            <td class="green"><div>{{item.profit}}</div></td>
+          </tr>
+        </table>
+      </div>
       <div v-if="show">
       <div class="searchhistory clearfix">
         <div class="fl">历史搜索</div>
-        <div class="fr">+添加自选股</div>
+        <router-link to="Optional"><div class="fr">+添加自选股</div></router-link>
       </div>
       <div class="searchhistorybox">
         <span v-for="(item,index) in searchhistory" @click="searchtext=item" :key="index">{{item}}<i @click.stop="delsearch(item)">x</i></span>
@@ -75,8 +109,18 @@ export default {
       show1: true,
       stock: [
         {id: 1, name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'},
+        {id: 2, name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'},
+        {id: 3, name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'}
+      ],
+      stock1: [
         {id: 1, name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'},
-        {id: 1, name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'}
+        {id: 2, name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'},
+        {id: 3, name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'}
+      ],
+      stock2: [
+        {id: 1, time: '2018/9/26', name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'},
+        {id: 2, time: '2018/9/26', name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'},
+        {id: 3, time: '2018/9/26', name: '第一创业', code: '001797', available: '5.43', price: '0.23', profit: '-4.23%'}
       ]
     }
   },
@@ -272,6 +316,9 @@ export default {
           .green {
             color: #16C635;
             line-height: 34px;
+            .fsz {
+              font-size: 18px;
+            }
           }
           .greenbox {
             .box {

@@ -125,6 +125,18 @@
         >取消</button>
       </div>
     </div>
+    <div
+      class="message"
+      v-if="messagenobox"
+      @click="messagenobox=!messagenobox"
+    >
+      <div class="messagebox clearfix">
+        <span>请勾选并同意</span>
+        <span>《点点配协议》</span>
+        <span>《风险提示书》</span>
+        <span>后再申请</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -144,6 +156,7 @@ export default {
       Deadlineshow: false,
       boolean: false,
       messagebox: false,
+      messagenobox: false,
       nav: [
         { one: '1倍', two: '日利率为0.13%', three: '2000元' },
         { one: '2倍', two: '日利率为0.14%', three: '4000元' },
@@ -184,8 +197,11 @@ export default {
       }
     },
     btn () {
-      if (this.boolean) {
-        this.messagebox = true
+      let self = this
+      if (self.boolean) {
+        self.messagebox = true
+      } else {
+        self.messagenobox = true
       }
     },
     cancel () {
@@ -492,11 +508,20 @@ export default {
     margin-top: -267px;
     margin-left: -267px;
     padding: 88px 60px;
+    z-index: 10;
     button {
       background-color: #c43236;
       color: #fff;
       padding: 21px 41px;
       margin-top: 107px;
+    }
+    span {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    >span:first-child{
+      margin-top: 80px;
     }
   }
   .color {

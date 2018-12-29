@@ -26,6 +26,7 @@ import Entrustday from '@/initial/transaction/Entrustday'
 import Transactionhistory from '@/initial/transaction/Transactionhistory'
 import Entrusthistory from '@/initial/transaction/Entrusthistory'
 import more from '@/initial/transaction/more'
+import Optional from '@/initial/transaction/Optional'
 import Onlinerecharge from '@/initial/recharge/Onlinerecharge'
 import Offlinerecharge from '@/initial/recharge/Offlinerecharge'
 import day from '@/initial/recharge/day'
@@ -221,6 +222,11 @@ export default new Router({
     path: '/more',
     name: 'more',
     component: more
+  },
+  {
+    path: '/Optional',
+    name: 'Optional',
+    component: Optional
   }, // 交易
   {
     path: '/my',

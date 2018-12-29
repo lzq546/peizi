@@ -13,6 +13,7 @@
     <div class="img">
       <div class="Choiceimg" v-if="false"></div>
       <div class="Choiceimg">
+        <input type="file">
         <div>+</div>
         <span>添加图片</span>
       </div>
@@ -67,6 +68,15 @@ export default {
       color: #939393;
       background-color: #e5e5e5;
       vertical-align: top;
+      position: relative;
+      input {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0px;
+        left: 0px;
+        opacity: 0;
+      }
       div {
         font-size: 120px;
       }

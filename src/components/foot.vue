@@ -102,13 +102,18 @@ export default {
           }
         }
       }
-      if (from.name == 'my' && to.name == 'Commission') {
-        let a = '奖励收入明细'
-        this.$store.commit('Yongjin_name', a)
-      } else {
-        let a = '佣金收入明细'
-        this.$store.commit('Yongjin_name', a)
-      }
+      // if (from.name == 'my' && to.name == 'Commission') {
+      //   let a = '奖励收入明细'
+      //   this.$store.commit('Yongjin_name', a)
+      //   console.log(123)
+      //   console.log(this.$store.state.yongjinname)
+      // }
+      // if (from.name == 'Invitation' && to.name == 'Commission') {
+      //   let b = '佣金收入明细'
+      //   this.$store.commit('Yongjin_name', b)
+      //   console.log(456)
+      //   console.log(this.$store.state.yongjinname)
+      // }
     }
   },
   methods: {

@@ -18,7 +18,7 @@
     </div>
     <div class="nav">
       <ul>
-        <li><router-link to="Mybankcard"><div class="navbox"><img src="@/assets/images/我要充值.png" alt=""><div class="text">我要充值</div></div></router-link></li>
+        <li><router-link to="Additionalmargin"><div class="navbox firstnavbox"><img src="@/assets/images/我要充值.png" alt=""><div class="text">我要充值</div></div></router-link></li>
         <li><router-link to="Cashwithdrawal"><div class="navbox"><img src="@/assets/images/我要提现图标.png" alt=""><div class="text">我要提现<br><span>可提金额{{cash}}</span></div></div></router-link></li>
       </ul>
     </div>
@@ -175,18 +175,13 @@ export default {
         flex: 1;
         padding: 15px 0px;
         border-bottom: 2px solid #E2E2E2;
-        :nth-child(1) {
-          border-left: none;
-        }:nth-child(2) {
-          border-right: none;
-        }
         .navbox {
           width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
           border-left: 2px solid #E2E2E2;
-          border-right: 2px solid #E2E2E2;
+          // border-right: 2px solid #E2E2E2;
           img {
             width: 50px;
             height: 50px;
@@ -203,6 +198,9 @@ export default {
               // line-height: 24px;
             }
           }
+        }
+        .firstnavbox{
+          border-left: none;
         }
       }
     }

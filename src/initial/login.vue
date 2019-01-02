@@ -6,7 +6,7 @@
           <div class="user_box">
             <div class="user-name user-box">
               <div>账号</div>
-              <input type="text" placeholder="用户名/邮箱/手机号/身份证" v-model="username">
+              <input type="text" placeholder="请输入用户名" v-model="username">
             </div>
             <div class="user-pws user-box">
               <div>密码</div>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import {login} from '@/api/api'
 import { Header, Field } from 'mint-ui'
 export default {
   name: 'login',
@@ -59,7 +60,12 @@ export default {
     login_user () {
       console.log(this.username)
       console.log(this.password)
-      this.$router.push({name: 'index', path: '/index'})
+      login(this.username, this.password).then(res => {
+        console.log(res)
+        if (res.code == '0010') {
+          this.$router.push({name: 'index', path: '/index'})
+        }
+      })
     }
   }
 }

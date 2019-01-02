@@ -14,7 +14,11 @@
                 </div>
                 <div class="user-pws user-box" style="margin-top: 20px;">
                     <div><img src="../assets/images/密码.png" alt=""></div>
-                    <input type="password" placeholder="请输入验证码" v-model="password">
+                    <input type="password" placeholder="请输入密码" v-model="password">
+                </div>
+                <div class="user-pws user-box" style="margin-top: 20px;">
+                    <div><img src="../assets/images/密码.png" alt=""></div>
+                    <input type="password" placeholder="请再次输入密码" v-model="passwords">
                 </div>
             </div>
             <div class="login-box" @click="Reset_user">重置密码</div>
@@ -24,7 +28,7 @@
 
 <script>
 import top from '@/components/top'
-import { MessageBox } from 'mint-ui'
+import { Toast } from 'mint-ui'
 export default {
   name: 'Reset',
   components: {
@@ -35,7 +39,8 @@ export default {
       msg: '忘记密码',
       phonenumber: '',
       verificationcode: '',
-      password: ''
+      password: '',
+      passwords:''
     }
   },
   mounted () {},
@@ -45,12 +50,12 @@ export default {
     },
     verification () {
       console.log(this.phonenumber)
-      MessageBox('Notice', 'You clicked the button')
     },
     Reset_user () {
       console.log(this.phonenumber)
       console.log(this.verificationcode)
       console.log(this.password)
+      Toast('密码重置成功')
       this.$router.push({name: 'login', path: '/login'})
     }
   }

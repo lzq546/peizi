@@ -40,22 +40,11 @@
     </div>
     <h3>第三步：选择你的操盘周期</h3>
     <div class="Deadline Deadlinebox">期限：<div>
-        <span class="text">{{Deadline}}</span>
-        <span
-          class="sanjiao"
-          @click="Deadlineshow = !Deadlineshow"
-        ><i></i></span>
+        <span class="text"><input type="text" ></span>
       </div>
-      <ul v-if="Deadlineshow">
-        <li
-          v-for="(item,index) in Deadlinenav"
-          @click="Deadlineclick(item)"
-          :key="index"
-        >{{item}}</li>
-      </ul>
     </div>
-    <div class="text4">账户管理费：0元/交易日</div>
-    <div class="text5">备注：按交易日收取管理费</div>
+    <div class="text4">账户管理费：0元/交易月</div>
+    <div class="text5">备注：按交易月收取管理费</div>
     <div class="nav1">
       <ul>
         <li>
@@ -312,29 +301,6 @@ export default {
     display: flex;
     align-items: center;
     position: relative;
-    ul {
-      position: absolute;
-      display: inline-block;
-      width: 108px;
-      top: 29px;
-      left: 72px;
-      background-color: #eaeaea;
-      border: 2px solid #c2c2c2;
-      z-index: 10;
-      li {
-        width: 100%;
-        height: 29px;
-        line-height: 29px;
-        font-size: 18px;
-        color: #333;
-        padding-left: 2px;
-        text-indent: 0px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        z-index: 10;
-      }
-    }
     div {
       display: inline-block;
       width: 108px;
@@ -353,22 +319,9 @@ export default {
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
-      }
-      .sanjiao {
-        width: 23px;
-        height: 29px;
-        position: relative;
-        i {
-          border-top: 6.5px solid #000000;
-          border-left: 4.5px solid transparent;
-          border-bottom: 6.5px solid transparent;
-          border-right: 4.5px solid transparent;
-          position: absolute;
-          top: 0px;
-          left: 50%;
-          top: 50%;
-          margin-left: -6.5px;
-          margin-top: -4.5px;
+        input {
+          width: 100%;
+          background-color: #eaeaea;
         }
       }
     }

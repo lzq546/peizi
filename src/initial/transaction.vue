@@ -17,13 +17,13 @@
           <li v-for="(item,index) in nav1" :key="index" :class="{'bordercolor':index==current}" @click="allocation(item,index)" >{{item}}</li>
         </ul>
       </div>
-      <div class="searchbox">
+      <!-- <div class="searchbox">
         <div class="search-box">
           <div class="search-ico" @click="search"><img src="../assets/images/放大镜.png" alt=""></div>
-          <input type="text" class="search" placeholder="搜索股票代码/拼音" v-model="searchtext">
+          <input type="text" class="search" placeholder="搜索股票代码/名称" v-model="searchtext">
         </div>
           <div class="empty" @click="searchtext=''">清空</div>
-      </div>
+      </div> -->
       <div class="table" v-if="current==0">
         <table>
           <tr>
@@ -76,12 +76,12 @@
       </div>
       <div v-if="show">
       <div class="searchhistory clearfix">
-        <div class="fl">历史搜索</div>
+        <!-- <div class="fl">历史搜索</div> -->
         <router-link to="Optional"><div class="fr">+添加自选股</div></router-link>
       </div>
-      <div class="searchhistorybox">
+      <!-- <div class="searchhistorybox">
         <span v-for="(item,index) in searchhistory" @click="searchtext=item" :key="index">{{item}}<i @click.stop="delsearch(item)">x</i></span>
-      </div>
+      </div> -->
       </div>
       <div class="more" v-if="show1">
         <router-link to="more"><span class="fr">更多»</span></router-link>

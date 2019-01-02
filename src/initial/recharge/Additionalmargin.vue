@@ -3,12 +3,12 @@
     <top :msg="msg"></top>
     <h3>选择订单</h3>
     <div class="box">
-      <div class="box1">
-        <input type="text" v-model="Order">
-        <span @click="Ordershow = !Ordershow"><img src="../../assets/images/下箭头.png" alt=""></span>
+      <div class="box1" @click="Ordershow = !Ordershow">
+        <div class="box_box">{{Order}}</div>
+        <span><img src="../../assets/images/下箭头.png" alt=""></span>
         <div class="nav" v-if="Ordershow">
           <ul>
-            <li v-for="(item,index) in Ordernav" @click="Orderclick(item)" :key="index">{{item}}</li>
+            <li v-for="(item,index) in Ordernav" @click.stop="Orderclick(item)" :key="index">{{item}}</li>
           </ul>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default {
           }
         }
       }
-      input {
+      .box_box {
         flex: 1;
         font-size: 36px;
         text-indent: 30px;

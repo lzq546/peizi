@@ -1,6 +1,13 @@
 <template>
   <div class="limit">
     <top :msg="msg"></top>
+      <div class="searchbox">
+        <div class="search-box">
+          <div class="search-ico" @click="search"><img src="../../assets/images/放大镜.png" alt=""></div>
+          <input type="text" class="search" placeholder="搜索股票代码/名称" v-model="searchtext">
+        </div>
+          <div class="empty" @click="searchtext=''">清空</div>
+      </div>
     <div class="box">
       <div class="left">
         <div
@@ -38,12 +45,13 @@ export default {
   data () {
     return {
       msg: '限制个股名单',
+      searchtext: '',
       onenav: [
         '用户ID',
         '股票代码',
         '股票名称',
         '名称首字母',
-        '市场模块',
+        '市场板块',
         '加入时间'
       ],
       twonav: [
@@ -100,7 +108,18 @@ export default {
       ]
     }
   },
-  methods: {},
+  methods: {
+    
+    search () {
+      let self = this
+      let a = self.searchtext.trim()
+      if (a.length > 0) {
+        self.searchhistory.push(a)
+      }
+      let b = JSON.stringify(self.searchhistory)
+      localStorage.setItem('searchhistory', b)
+    },
+  },
   mounted () {
   }
 }
@@ -111,6 +130,51 @@ export default {
   margin-bottom: 128px;
   font-size: 26px;
   color: #333333;
+  
+    .searchbox{
+      width: 100%;
+      height: 80px;
+      background-color: #F5F5F5;
+      display: flex;
+      align-items: center;
+    .search-box {
+        flex: 1;
+        height: 50px;
+        margin-left: 65px;
+        border-radius: 25px;
+        font-size: 24px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .search {
+        // width: 430px;
+        flex: 1;
+        height: 50px;
+        background-color: #fff;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        text-indent: 18px;
+      }
+      .search-ico {
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .empty {
+        width: 125px;
+        font-size: 24px;
+        color: #999999;
+        text-align: center;
+      }
+    }
   .box {
     width: 100%;
     display: flex;

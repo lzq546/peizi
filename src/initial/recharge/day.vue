@@ -43,19 +43,8 @@
     </div>
     <h3>第三步：选择你的操盘周期</h3>
     <div class="Deadline Deadlinebox">期限：<div>
-        <span class="text">{{Deadline}}</span>
-        <span
-          class="sanjiao"
-          @click="Deadlineshow = !Deadlineshow"
-        ><i></i></span>
+      <span class="text"><input type="text"></span>
       </div>
-      <ul v-if="Deadlineshow">
-        <li
-          v-for="(item,index) in Deadlinenav"
-          @click="Deadlineclick(item)"
-          :key="index"
-        >{{item}}</li>
-      </ul>
     </div>
     <div class="text4">账户管理费：0元/交易日</div>
     <div class="text5">备注：按交易日收取管理费</div>
@@ -76,7 +65,7 @@
         <li>
           <div>账户管理费</div>
           <div>
-            <div class="mb" style="text-align: right;"><span>1.2</span>分/每月</div>
+            <div class="mb" style="text-align: right;"><span>1.2</span>分/每日</div>
             <div>单月利息<span>120</span>元，总利息<span>120</span>元</div>
           </div>
         </li>
@@ -152,8 +141,6 @@ export default {
       msg: '按天配资',
       colorshow: true,
       current: 0,
-      Deadline: '5个交易日',
-      Deadlineshow: false,
       boolean: false,
       messagebox: false,
       messagenobox: false,
@@ -163,13 +150,6 @@ export default {
         { one: '3倍', two: '日利率为0.15%', three: '6000元' },
         { one: '4倍', two: '日利率为0.16%', three: '8000元' },
         { one: '5倍', two: '日利率为0.17%', three: '10000元' }
-      ],
-      Deadlinenav: [
-        '1个交易日',
-        '2个交易日',
-        '3个交易日',
-        '4个交易日',
-        '5个交易日'
       ]
     }
   },
@@ -184,10 +164,6 @@ export default {
     allocation (item, index) {
       let self = this
       self.current = index
-    },
-    Deadlineclick (val) {
-      this.Deadline = val
-      this.Deadlineshow = false
     },
     selection () {
       if (this.boolean === false) {
@@ -336,29 +312,6 @@ export default {
     display: flex;
     align-items: center;
     position: relative;
-    ul {
-      position: absolute;
-      display: inline-block;
-      width: 108px;
-      top: 29px;
-      left: 72px;
-      background-color: #eaeaea;
-      border: 2px solid #c2c2c2;
-      z-index: 10;
-      li {
-        width: 100%;
-        height: 29px;
-        line-height: 29px;
-        font-size: 18px;
-        color: #333;
-        padding-left: 2px;
-        text-indent: 0px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        z-index: 10;
-      }
-    }
     div {
       display: inline-block;
       width: 108px;
@@ -377,22 +330,10 @@ export default {
         margin-left: 2px;
         font-size: 18px;
         text-indent: 0px;
-      }
-      .sanjiao {
-        width: 23px;
-        height: 29px;
-        position: relative;
-        i {
-          border-top: 6.5px solid #000000;
-          border-left: 4.5px solid transparent;
-          border-bottom: 6.5px solid transparent;
-          border-right: 4.5px solid transparent;
-          position: absolute;
-          top: 0px;
-          left: 50%;
-          top: 50%;
-          margin-left: -6.5px;
-          margin-top: -4.5px;
+        justify-content: center;
+        input {
+          width: 100%;
+          background-color: #eaeaea;
         }
       }
     }

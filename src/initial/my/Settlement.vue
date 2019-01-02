@@ -2,13 +2,10 @@
   <div class="Settlement">
     <top :msg="msg"></top>
     <h3>选择增配订单</h3>
-    <div class="box">
+    <div class="box" @click="Ordershow = !Ordershow">
       <div class="box1">
-        <input
-          type="text"
-          v-model="Order"
-        >
-        <span @click="Ordershow = !Ordershow"><img
+        <div class="box_box">{{Order}}</div>
+        <span><img
             src="../../assets/images/下箭头.png"
             alt=""
           ></span>
@@ -19,7 +16,7 @@
           <ul>
             <li
               v-for="(item,index) in Ordernav"
-              @click="Order=item,Ordershow=!Ordershow"
+              @click.stop="Order=item,Ordershow=!Ordershow"
               :key="index"
             >{{item}}</li>
           </ul>
@@ -198,7 +195,7 @@ export default {
           }
         }
       }
-      input {
+      .box_box {
         flex: 1;
         font-size: 36px;
         text-indent: 30px;

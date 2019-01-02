@@ -17,6 +17,22 @@ Vue.prototype.$echarts = echarts
 Vue.use(MintUI)
 Vue.config.productionTip = false
 
+// router.beforeEach((to, from, next) => {
+//   // 1.获取令牌：token
+//   var token = localStorage.getItem('mytoken')
+//   // 如果token有值，说明曾经登陆地 ，说明拥有合法访问的令牌
+//   if (token) {
+//     next()
+//   } else {
+//     // 如果是访问默认可以访问的页，如登陆，那么也不需要有令牌
+//     if (to.path === '/login') { // 判断是不是访问登陆页面
+//       next()
+//     } else {
+//       next({path: '/login'})
+//     }
+//   }
+// })
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

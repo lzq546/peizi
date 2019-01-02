@@ -8,7 +8,7 @@
             <div class="user_box">
                 <div class="phone-number user-box">
                     <div><img src="../assets/images/手机.png" alt=""></div>
-                    <input type="text" placeholder="请输入手机号" v-model="phonenumber">
+                    <input type="text" placeholder="请输入手机号" @blur="test" v-model="phonenumber">
                 </div>
                 <div class="verificationcode user-box">
                     <div><img src="../assets/images/验证.png" alt=""></div>
@@ -17,10 +17,14 @@
                 </div>
                 <div class="user-pws user-box" style="margin-top: 20px;">
                     <div><img src="../assets/images/密码.png" alt=""></div>
-                    <input type="password" placeholder="请输入验证码" v-model="password">
+                    <input type="password" placeholder="请输入8-16位字母数字混合密码" @blur="test1" v-model="password">
+                </div>
+                <div class="user-invitation user-box" style="margin-top: 20px;">
+                    <div><img src="../assets/images/邀请码.png" alt=""></div>
+                    <input type="password" placeholder="请输入邀请码" v-model="invitation">
                 </div>
             </div>
-            <div class="login-box" @click="register_user">登录</div>
+            <div class="login-box" @click="register_user">确认注册</div>
             <div class="careful">登录即表示同意
                 <router-link to="Agreement">《点点配APP注册协议》</router-link>
             </div>
@@ -29,30 +33,53 @@
 </template>
 
 <script>
-import { MessageBox } from 'mint-ui'
+import {message, register} from '@/api/api'
+import { Toast } from 'mint-ui'
 export default {
   name: 'register',
   data () {
     return {
       phonenumber: '',
       verificationcode: '',
-      password: ''
+      password: '',
+      invitation: ''
     }
   },
-  mounted () {},
+  mounted () {
+  },
   methods: {
     back () {
       this.$router.go(-1) // 返回上一层
     },
+    test () {
+      if (!(/^1[34578]\d{9}$/.test(this.phonenumber))) {
+        Toast('请输入正确的手机号码')
+      }
+    },
+    test1 () {
+      if (!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/.test(this.password))) {
+        Toast('请输入8-16位字母数字混合密码')
+      }
+    },
+    // 获取短信验证码
     verification () {
       console.log(this.phonenumber)
-      MessageBox('Notice', 'You clicked the button')
+      message(this.phonenumber).then(res => {
+        console.log(res)
+      })
     },
+    // 注册账号
     register_user () {
       console.log(this.phonenumber)
       console.log(this.verificationcode)
       console.log(this.password)
-      this.$router.push({name: 'login', path: '/login'})
+      register(this.phonenumber, this.password, this.verificationcode).then(res => {
+        console.log(res)
+        if (res.code == '0010') {
+          Toast('成功注册账号')
+          this.$router.push({name: 'login', path: '/login'})
+        }
+      })
     }
   }
 }

@@ -68,7 +68,7 @@ export default {
         }
       }
       //  || '/Onlinerecharge' || 'Offlinerecharge' || '/day' || 'month' || '/experience' || 'query' || 'Additionalmargin' || '/Additionalquota' || 'Reducingquota'
-      if (this.$route.path == '/recharge' || this.$route.path == '/day' || this.$route.path == '/month' || this.$route.path == '/experience' || this.$route.path == '/query') {
+      if (this.$route.path == '/recharge' || this.$route.path == '/day' || this.$route.path == '/month' || this.$route.path == '/experience' || this.$route.path == '/query' || this.$route.path == '/Additionalmargin') {
         this.current = 1
         for (let i = 0; i < this.arr.length; i++) {
           if (this.arr[i].id === 2) {
@@ -80,7 +80,7 @@ export default {
         }
       }
       //  || '/transaactionindex' || 'Purchases' || 'Sell' || 'Chedan' || 'Position' || 'Transactionquery' || 'Transactionday' || 'Entrustday' || 'Transactionhistory' || 'Entrusthistory' || 'more'
-      if (this.$route.path == '/transaction') {
+      if (this.$route.path == '/transaction'||this.$route.path == '/Transactionquery') {
         this.current = 2
         for (let i = 0; i < this.arr.length; i++) {
           if (this.arr[i].id === 3) {

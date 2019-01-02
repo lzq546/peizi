@@ -4,8 +4,8 @@
     <div class="table">
       <table>
         <tr>
-          <th>名称代码</th>
           <th>成交时间</th>
+          <th>名称代码</th>
           <th>成交价</th>
           <th>成交量</th>
           <th>成交额</th>
@@ -17,8 +17,8 @@
           <div class="empty" @click="searchtext=''">清空</div>
       </div>
         <tr v-for="(item,index) in Transactionhistorynav" :key="index">
-          <td>{{item.name}}</td>
           <td>{{item.time}}</td>
+          <td>{{item.name}}</td>
           <td>{{item.price}}</td>
           <td>{{item.amount}}</td>
           <td>{{item.forehead}}</td>
@@ -76,7 +76,7 @@ export default {
           font-size: 30px;
           color: #666666;
         }
-        >td:nth-child(2){
+        >td:nth-child(1){
             font-size: 22px;
         }
         td {

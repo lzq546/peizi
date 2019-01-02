@@ -4,15 +4,15 @@
     <div class="table">
       <table>
         <tr>
-          <th>名称代码</th>
           <th>委托时间</th>
+          <th>名称代码</th>
           <th>委托价</th>
           <th>数量</th>
           <th>状态</th>
         </tr>
         <tr v-for="(item,index) in Entrustdaynav" :key="index">
-          <td>{{item.name}}</td>
           <td>{{item.time}}</td>
+          <td>{{item.name}}</td>
           <td>{{item.price}}</td>
           <td>{{item.amount}}</td>
           <td>{{item.forehead}}</td>
@@ -69,7 +69,7 @@ export default {
           font-size: 30px;
           color: #666666;
         }
-        >td:nth-child(2){
+        >td:nth-child(1){
             font-size: 22px;
         }
         td {

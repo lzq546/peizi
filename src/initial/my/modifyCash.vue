@@ -22,7 +22,7 @@ export default {
   },
   data () {
     return {
-      msg: '忘记密码',
+      msg: '提现密码',
       oldpwd: '',
       newpwd: ''
     }

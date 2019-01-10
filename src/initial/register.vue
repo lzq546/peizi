@@ -73,7 +73,7 @@ export default {
       console.log(this.phonenumber)
       console.log(this.verificationcode)
       console.log(this.password)
-      register(this.phonenumber, this.password, this.verificationcode).then(res => {
+      register(this.phonenumber, this.password, this.verificationcode, this.invitation).then(res => {
         console.log(res)
         if (res.code == '0010') {
           Toast('成功注册账号')

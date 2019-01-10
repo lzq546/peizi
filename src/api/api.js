@@ -9,8 +9,8 @@ export const message = (phoneNo) => {
   })
 }
 // 注册账号
-export const register = (phoneNo, pwd, valCode) => {
-  return axios.post(`${baseURL}/user/register`, {phoneNo, pwd, valCode})
+export const register = (phoneNo, pwd, valCode, invitCode) => {
+  return axios.post(`${baseURL}/user/register`, {phoneNo, pwd, valCode, invitCode})
     .then((result) => {
       return result.data
     })
